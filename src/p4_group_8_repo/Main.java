@@ -43,9 +43,11 @@ public class Main extends Application {
 	    
 		background.add(froggerback); // add game background
 		
-		if(State == STATE.GAME) {
+		
+		if(State == STATE.GAME) { // if in game state run commands below
+			
 		/*
-		 * 	background.add method will add sprites into the game
+		 * 	background.add below method will add sprites into the game
 		 */
 		
 		background.add(new Log("file:src/p4_group_8_repo/log3.png", 150, 0, 166, 0.75));
