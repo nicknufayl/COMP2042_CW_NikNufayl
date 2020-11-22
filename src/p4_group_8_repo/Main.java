@@ -39,7 +39,7 @@ public class Main extends Application {
 		BackgroundImage froggerback = new BackgroundImage("file:src/p4_group_8_repo/background.jpg");
 	    
 		
-		
+		if(State == STATE.GAME) {
 		background.add(froggerback); // display game background
 				/*
 		 * 	background.add method will add sprites into the game
@@ -90,7 +90,9 @@ public class Main extends Application {
 		primaryStage.setScene(scene);
 		primaryStage.show();
 		start();  
+		}
 	}
+	
 	public void createTimer() {
         timer = new AnimationTimer() {
             @Override
