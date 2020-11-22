@@ -22,6 +22,14 @@ public class Main extends Application {
 		launch(args);
 	}
 
+	
+	private enum STATE {
+		MENU,
+		GAME
+	}
+	
+	private STATE State = STATE.MENU;
+	
 	@Override
 	public void start(Stage primaryStage) throws Exception {
 	    background = new MyStage();
@@ -30,7 +38,12 @@ public class Main extends Application {
 
 		BackgroundImage froggerback = new BackgroundImage("file:src/p4_group_8_repo/background.jpg");
 	    
-		background.add(froggerback);
+		
+		
+		background.add(froggerback); // display game background
+				/*
+		 * 	background.add method will add sprites into the game
+		 */
 		
 		background.add(new Log("file:src/p4_group_8_repo/log3.png", 150, 0, 166, 0.75));
 		background.add(new Log("file:src/p4_group_8_repo/log3.png", 150, 220, 166, 0.75));
