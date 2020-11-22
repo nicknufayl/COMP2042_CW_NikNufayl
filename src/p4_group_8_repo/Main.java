@@ -14,6 +14,7 @@ import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 
+
 public class Main extends Application {
 	AnimationTimer timer;
 	MyStage background;
@@ -30,18 +31,20 @@ public class Main extends Application {
 	
 	private STATE State = STATE.MENU;
 	
+	
 	@Override
 	public void start(Stage primaryStage) throws Exception {
+		
 	    background = new MyStage();
 	    Scene scene  = new Scene(background,600,800);
-	    
+	    animal = new Animal("file:src/p4_group_8_repo/froggerUp.png");
 
 		BackgroundImage froggerback = new BackgroundImage("file:src/p4_group_8_repo/background.jpg");
 	    
+		background.add(froggerback); // add game background
 		
 		if(State == STATE.GAME) {
-		background.add(froggerback); // display game background
-				/*
+		/*
 		 * 	background.add method will add sprites into the game
 		 */
 		
@@ -72,7 +75,7 @@ public class Main extends Application {
 		background.add(new End(141 + 141-13,96));
 		background.add(new End(141 + 141-13+141-13+1,96));
 		background.add(new End(141 + 141-13+141-13+141-13+3,96));
-		animal = new Animal("file:src/p4_group_8_repo/froggerUp.png");
+		
 		background.add(animal);
 		background.add(new Obstacle("file:src/p4_group_8_repo/truck1"+"Right.png", 0, 649, 1, 120, 120));
 		background.add(new Obstacle("file:src/p4_group_8_repo/truck1"+"Right.png", 300, 649, 1, 120, 120));
@@ -86,13 +89,16 @@ public class Main extends Application {
 		background.add(new Obstacle("file:src/p4_group_8_repo/truck2Right.png", 500, 540, 1, 200, 200));
 		background.add(new Obstacle("file:src/p4_group_8_repo/car1Left.png", 500, 490, -5, 50, 50));
 		background.add(new Digit(0, 30, 360, 25));
+		}
+		
 		background.start();
 		primaryStage.setScene(scene);
 		primaryStage.show();
 		start();  
-		}
+		
+		
 	}
-	
+		
 	public void createTimer() {
         timer = new AnimationTimer() {
             @Override
@@ -114,6 +120,8 @@ public class Main extends Application {
             }
         };
     }
+	
+	
 	public void start() {
 		background.playMusic();
     	createTimer();
