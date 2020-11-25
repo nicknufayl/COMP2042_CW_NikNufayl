@@ -47,7 +47,6 @@ public class Main extends Application {
 			addVehicle();
 			
 			background.add(animal);
-			
 			background.add(new Digit(0, 30, 360, 25));
 			
 			//}
