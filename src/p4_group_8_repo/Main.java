@@ -11,6 +11,7 @@ public class Main extends Application {
 	AnimationTimer timer;
 	MyStage background = new MyStage();;
 	Animal animal = new Animal("file:src/p4_group_8_repo/froggerUp.png");
+	BackgroundImage froggerback = new BackgroundImage("file:src/p4_group_8_repo/background.jpg");
 	Menu menu = new Menu();
 	Scene scene  = new Scene(background,600,800);
 	
@@ -28,10 +29,9 @@ public class Main extends Application {
 	
 
 	@Override
-	public void start(Stage primaryStage) throws Exception {
-		BackgroundImage froggerback = new BackgroundImage("file:src/p4_group_8_repo/background.jpg");	    
-		background.add(froggerback); // add game background
-			
+	public void start(Stage primaryStage) throws Exception {			    
+		
+		background.add(froggerback); // add game background		
 		addLog();
 		addTurtle();
 		addEnd();
@@ -41,9 +41,7 @@ public class Main extends Application {
 		background.start();
 		primaryStage.setScene(scene);
 		primaryStage.show();
-		start();  
-		
-		
+		start();  		
 	}
 		
 	public void createTimer() {
@@ -70,12 +68,7 @@ public class Main extends Application {
 	
 	
 	public void start() {
-		//if (State == STATE.GAME) {
-			background.playMusic();
-		//}
-		//else if (State == STATE.MENU) {
-
-		//}
+		//background.playMusic();	
     	createTimer();
         timer.start();
     }

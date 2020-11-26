@@ -18,7 +18,6 @@ public class Animal extends Actor {
 	Image imgA2;
 	Image imgS2;
 	Image imgD2;
-	MyStage background;
 	int points = 0;
 	int end = 0;
 	private boolean second = false;
@@ -34,7 +33,6 @@ public class Animal extends Actor {
 	double w = 800;
 	ArrayList<End> inter = new ArrayList<End>();
 	public Animal(String imageLink) {
-		background = new MyStage();
 		setImage(new Image(imageLink, imgSize, imgSize, true, true));
 		setX(300);
 		setY(679.8+movement);
@@ -149,7 +147,33 @@ public class Animal extends Actor {
 			if ((now)% 11 ==0) {
 				carD++;
 			}
-			if (carD==1) {
+			switch (carD) {
+				case 1:
+					setImage(new Image("file:src/p4_group_8_repo/cardeath1.png", imgSize, imgSize, true, true));
+					break;
+				case 2:
+					setImage(new Image("file:src/p4_group_8_repo/cardeath2.png", imgSize, imgSize, true, true));
+					break;
+				case 3:
+					setImage(new Image("file:src/p4_group_8_repo/cardeath3.png", imgSize, imgSize, true, true));
+					break;
+				case 4:
+					setX(300);
+					setY(679.8+movement);
+					carDeath = false;
+					carD = 0;
+					setImage(new Image("file:src/p4_group_8_repo/froggerUp.png", imgSize, imgSize, true, true));
+					noMove = false;
+					if (points>50) {
+						points-=50;
+						changeScore = true;
+					}
+					break;
+				default:
+					break;
+				
+			}
+			/*if (carD==1) {
 				setImage(new Image("file:src/p4_group_8_repo/cardeath1.png", imgSize, imgSize, true, true));
 			}
 			if (carD==2) {
@@ -169,7 +193,7 @@ public class Animal extends Actor {
 					points-=50;
 					changeScore = true;
 				}
-			}
+			}*/
 			
 		}
 		if (waterDeath) {
