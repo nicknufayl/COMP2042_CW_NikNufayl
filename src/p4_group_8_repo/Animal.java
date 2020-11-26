@@ -126,7 +126,6 @@ public class Animal extends Actor {
 	
 	@Override
 	public void act(long now) {
-		int bounds = 0;
 		if (getY()<0 || getY()>734) {
 			setX(300);
 			setY(679.8+movement);
