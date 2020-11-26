@@ -9,9 +9,10 @@ import javafx.stage.Stage;
 
 public class Main extends Application {
 	AnimationTimer timer;
-	MyStage background;
-	Animal animal;
-	Menu menu;
+	MyStage background = new MyStage();;
+	Animal animal = new Animal("file:src/p4_group_8_repo/froggerUp.png");
+	Menu menu = new Menu();
+	Scene scene  = new Scene(background,600,800);
 	
 	public static void main(String[] args) {
 		launch(args);
@@ -28,33 +29,15 @@ public class Main extends Application {
 
 	@Override
 	public void start(Stage primaryStage) throws Exception {
-		
-	    background = new MyStage();
-	    Scene scene  = new Scene(background,600,800);
-	    animal = new Animal("file:src/p4_group_8_repo/froggerUp.png");
-	    menu = new Menu();
-	    
-		BackgroundImage froggerback = new BackgroundImage("file:src/p4_group_8_repo/background.jpg");
-	    
+		BackgroundImage froggerback = new BackgroundImage("file:src/p4_group_8_repo/background.jpg");	    
 		background.add(froggerback); // add game background
-		
-		
-		//if(State == STATE.GAME) { // if in game state, run the lines below
 			
-			addLog();
-			addTurtle();
-			addEnd();
-			addVehicle();
-			
-			background.add(animal);
-			background.add(new Digit(0, 30, 360, 25));
-			
-			//}
-		//else if (State == STATE.MENU) { // if in menu state, run the lines below
-			
-			
-			//}
-		
+		addLog();
+		addTurtle();
+		addEnd();
+		addVehicle();	
+		background.add(animal);
+		background.add(new Digit(0, 30, 360, 25));		
 		background.start();
 		primaryStage.setScene(scene);
 		primaryStage.show();
