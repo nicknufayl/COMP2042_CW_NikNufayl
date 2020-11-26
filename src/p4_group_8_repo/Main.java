@@ -36,12 +36,19 @@ public class Main extends Application {
 		addTurtle();
 		addEnd();
 		addVehicle();
+		setGame(primaryStage);
+		start();  		
+	}
+
+	/**
+	 * @param primaryStage
+	 */
+	private void setGame(Stage primaryStage) {
 		background.add(animal);
 		background.add(new Digit(0, 30, 360, 25));		
 		background.start();
 		primaryStage.setScene(scene);
 		primaryStage.show();
-		start();  		
 	}
 		
 	public void createTimer() {
@@ -56,11 +63,7 @@ public class Main extends Application {
             		background.stopMusic();
             		stop();
             		background.stop();
-            		Alert alert = new Alert(AlertType.INFORMATION);
-            		alert.setTitle("You Have Won The Game!");
-            		alert.setHeaderText("Your High Score: "+animal.getPoints()+"!");
-            		alert.setContentText("Highest Possible Score: 800");
-            		alert.show();
+            		setAlert();
             	}
             }
         };
@@ -119,7 +122,8 @@ public class Main extends Application {
 		background.add(new End(141 + 141-13+141-13+141-13+3,96));
 	}
 	
-	public void addVehicle() {
+
+	private void addVehicle() {
 		background.add(new Obstacle("file:src/p4_group_8_repo/truck1"+"Right.png", 0, 649, 1, 120, 120));
 		background.add(new Obstacle("file:src/p4_group_8_repo/truck1"+"Right.png", 300, 649, 1, 120, 120));
 		background.add(new Obstacle("file:src/p4_group_8_repo/truck1"+"Right.png", 600, 649, 1, 120, 120));
@@ -130,5 +134,16 @@ public class Main extends Application {
 		background.add(new Obstacle("file:src/p4_group_8_repo/truck2Right.png", 0, 540, 1, 200, 200));
 		background.add(new Obstacle("file:src/p4_group_8_repo/truck2Right.png", 500, 540, 1, 200, 200));
 		background.add(new Obstacle("file:src/p4_group_8_repo/car1Left.png", 500, 490, -5, 50, 50));
+	}
+
+	/**
+	 * 
+	 */
+	private void setAlert() {
+		Alert alert = new Alert(AlertType.INFORMATION);
+		alert.setTitle("You Have Won The Game!");
+		alert.setHeaderText("Your High Score: "+animal.getPoints()+"!");
+		alert.setContentText("Highest Possible Score: 800");
+		alert.show();
 	}
 }
