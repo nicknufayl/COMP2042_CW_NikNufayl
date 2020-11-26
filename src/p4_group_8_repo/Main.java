@@ -32,12 +32,12 @@ public class Main extends Application {
 	public void start(Stage primaryStage) throws Exception {			    				
 		background.add(froggerback); // add game background		
 		
-		addLog();
-		addTurtle();
-		addEnd();
-		addVehicle();
-		setGame(primaryStage);
-		start();  		
+		addLog(); // spawn logs into game
+		addTurtle(); // spawn turtles into game
+		addEnd(); // add end spots into game
+		addVehicle(); // add vehicles into game
+		setGame(primaryStage); // set and display the game scene
+		start(); // start game
 	}
 
 	/**
