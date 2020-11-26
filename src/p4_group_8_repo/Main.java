@@ -29,13 +29,13 @@ public class Main extends Application {
 	
 
 	@Override
-	public void start(Stage primaryStage) throws Exception {			    
-		
+	public void start(Stage primaryStage) throws Exception {			    				
 		background.add(froggerback); // add game background		
+		
 		addLog();
 		addTurtle();
 		addEnd();
-		addVehicle();	
+		addVehicle();
 		background.add(animal);
 		background.add(new Digit(0, 30, 360, 25));		
 		background.start();
