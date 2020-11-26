@@ -180,30 +180,34 @@ public class Animal extends Actor {
 			if ((now)% 11 ==0) {
 				carD++;
 			}
-			if (carD==1) {
-				setImage(new Image("file:src/p4_group_8_repo/waterdeath1.png", imgSize,imgSize , true, true));
+			switch(carD) {
+				case 1:
+					setImage(new Image("file:src/p4_group_8_repo/waterdeath1.png", imgSize,imgSize , true, true));
+					break;
+				case 2:
+					setImage(new Image("file:src/p4_group_8_repo/waterdeath2.png", imgSize,imgSize , true, true));
+					break;
+				case 3:
+					setImage(new Image("file:src/p4_group_8_repo/waterdeath3.png", imgSize,imgSize , true, true));
+					break;
+				case 4:
+					setImage(new Image("file:src/p4_group_8_repo/waterdeath4.png", imgSize,imgSize , true, true));
+					break;
+				case 5:
+					setX(300);
+					setY(679.8+movement);
+					waterDeath = false;
+					carD = 0;
+					setImage(new Image("file:src/p4_group_8_repo/froggerUp.png", imgSize, imgSize, true, true));
+					noMove = false;
+					if (points>50) {
+						points-=50;
+						changeScore = true;
+					}
+				default:
+					break;
 			}
-			if (carD==2) {
-				setImage(new Image("file:src/p4_group_8_repo/waterdeath2.png", imgSize,imgSize , true, true));
-			}
-			if (carD==3) {
-				setImage(new Image("file:src/p4_group_8_repo/waterdeath3.png", imgSize,imgSize , true, true));
-			}
-			if (carD == 4) {
-				setImage(new Image("file:src/p4_group_8_repo/waterdeath4.png", imgSize,imgSize , true, true));
-			}
-			if (carD == 5) {
-				setX(300);
-				setY(679.8+movement);
-				waterDeath = false;
-				carD = 0;
-				setImage(new Image("file:src/p4_group_8_repo/froggerUp.png", imgSize, imgSize, true, true));
-				noMove = false;
-				if (points>50) {
-					points-=50;
-					changeScore = true;
-				}
-			}
+			
 			
 		}
 		
