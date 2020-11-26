@@ -71,7 +71,7 @@ public class Main extends Application {
             		setNumber(animal.getPoints());
             	}
             	if (animal.getStop()) {
-            		System.out.print("STOPP:");
+            		System.out.print("STOP:");
             		background.stopMusic();
             		stop();
             		background.stop();
@@ -87,12 +87,12 @@ public class Main extends Application {
 	
 	
 	public void start() {
-		if (State == STATE.GAME) {
+		//if (State == STATE.GAME) {
 			background.playMusic();
-		}
-		else if (State == STATE.MENU) {
+		//}
+		//else if (State == STATE.MENU) {
 
-		}
+		//}
     	createTimer();
         timer.start();
     }

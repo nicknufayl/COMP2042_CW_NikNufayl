@@ -18,6 +18,7 @@ public class Animal extends Actor {
 	Image imgA2;
 	Image imgS2;
 	Image imgD2;
+	MyStage background;
 	int points = 0;
 	int end = 0;
 	private boolean second = false;
@@ -33,6 +34,7 @@ public class Animal extends Actor {
 	double w = 800;
 	ArrayList<End> inter = new ArrayList<End>();
 	public Animal(String imageLink) {
+		background = new MyStage();
 		setImage(new Image(imageLink, imgSize, imgSize, true, true));
 		setX(300);
 		setY(679.8+movement);
@@ -43,29 +45,33 @@ public class Animal extends Actor {
 					
 				}
 				else {
-				if (second) {
-					if (event.getCode() == KeyCode.W) {	  
-		                move(0, -movement);
-		                changeScore = false;
-		                setImage(imgW1);
-		                second = false;
-		            	}
-		            else if (event.getCode() == KeyCode.A) {	            	
-		            	 move(-movementX, 0);
-		            	 setImage(imgA1);
-		            	 second = false;
-		            	}
-		            else if (event.getCode() == KeyCode.S) {	            	
-		            	 move(0, movement);
-		            	 setImage(imgS1);
-		            	 second = false;
-		            	}
-		            else if (event.getCode() == KeyCode.D) {	            	
-		            	 move(movementX, 0);
-		            	 setImage(imgD1);
-		            	 second = false;
-		            	}
-					}
+				if (second) {		
+					switch (event.getCode()) {
+						case W:
+							move(0, -movement);
+			                changeScore = false;
+			                setImage(imgW1);
+			                second = false;
+			                break;
+						case A:
+							move(-movementX, 0);
+			            	setImage(imgA1);
+			            	second = false;
+			            	break;
+						case S:
+							move(0, movement);
+			            	setImage(imgS1);
+			            	second = false;
+			            	break;
+						case D:
+							move(movementX, 0);
+			            	setImage(imgD1);
+			            	second = false;
+			            	break;
+			            default:
+			            	break;
+							}
+				}
 				else if (event.getCode() == KeyCode.W) {	            	
 	                move(0, -movement);
 	                setImage(imgW2);
@@ -85,40 +91,45 @@ public class Animal extends Actor {
 	            	 move(movementX, 0);
 	            	 setImage(imgD2);
 	            	 second = true;
-	            	}
+	            	}		
 				}
 			}
 		});	
 		setOnKeyReleased(new EventHandler<KeyEvent>() {
 			public void handle(KeyEvent event) {
 				if (noMove) {}
-				else {
-				if (event.getCode() == KeyCode.W) {	  
-					if (getY() < w) {
-						changeScore = true;
-						w = getY();
-						points+=10;
+				else {			
+					switch (event.getCode()) {
+						case W:
+							if (getY() < w) {
+								changeScore = true;
+								w = getY();
+								points+=10;
+							}
+			                move(0, -movement);
+			                setImage(imgW1);
+			                second = false;
+			                break;
+						case A: 
+							move(-movementX, 0);
+			            	setImage(imgA1);
+			            	second = false;
+			            	break;
+						case S:
+							move(0, movement);
+			            	setImage(imgS1);
+			            	second = false;
+			            	break;
+						case D:
+							move(movementX, 0);
+			            	setImage(imgD1);
+			            	second = false;
+			            	break;
+			            default:
+			            	break; 
+					
 					}
-	                move(0, -movement);
-	                setImage(imgW1);
-	                second = false;
-	            }
-	            else if (event.getCode() == KeyCode.A) {	            	
-	            	 move(-movementX, 0);
-	            	 setImage(imgA1);
-	            	 second = false;
-	            }
-	            else if (event.getCode() == KeyCode.S) {	            	
-	            	 move(0, movement);
-	            	 setImage(imgS1);
-	            	 second = false;
-	            }
-	            else if (event.getCode() == KeyCode.D) {	            	
-	            	 move(movementX, 0);
-	            	 setImage(imgD1);
-	            	 second = false;
-	            }
-	        }
+		        }
 			}
 			
 		});
@@ -234,8 +245,6 @@ public class Animal extends Actor {
 		}
 		else if (getY()<413){
 			waterDeath = true;
-			//setX(300);
-			//setY(679.8+movement);
 		}
 	}
 	public boolean getStop() {
