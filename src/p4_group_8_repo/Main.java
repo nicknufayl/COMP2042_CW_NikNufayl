@@ -30,14 +30,15 @@ public class Main extends Application {
 
 	@Override
 	public void start(Stage primaryStage) throws Exception {			    				
-		background.add(froggerback); // add game background		
-		
+		background.add(froggerback); // add game background	
 		addLog(); // spawn logs into game
 		addTurtle(); // spawn turtles into game
 		addEnd(); // add end spots into game
 		addVehicle(); // add vehicles into game
 		setGame(primaryStage); // set and display the game scene
+		
 		start(); // start game
+
 	}
 
 	/**
@@ -71,7 +72,8 @@ public class Main extends Application {
 	
 	
 	public void start() {
-		//background.playMusic();	
+		background.playMusic();
+		background.setMute(); // set
     	createTimer();
         timer.start();
     }

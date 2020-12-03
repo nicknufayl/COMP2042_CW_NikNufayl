@@ -5,14 +5,23 @@ import javax.swing.BoxLayout;
 import javax.swing.Box;
 import javax.swing.JPanel;
 
-public class Menu extends JPanel{
+import javafx.event.EventHandler;
+import javafx.scene.input.KeyEvent;
+
+public class Menu extends World{
 	
 	public Menu() {
-		setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
+	}
+	
+
+	public void startGame() {
 		
-		add(Box.createVerticalStrut(280));
-		
-		//CustomButton button = new CustomButton("START");
+	}
+
+
+	@Override
+	public void act(long now) {
+		// TODO Auto-generated method stub
 		
 	}
 
