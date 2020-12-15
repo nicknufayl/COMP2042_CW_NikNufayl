@@ -15,7 +15,7 @@ public abstract class Actor extends ImageView{
 
 	/**
 	 * @param dy
-	 * @return
+	 * @return x Position
 	 */
 	private double yPosition(double dy) {
 		return getY() + dy;
@@ -23,7 +23,7 @@ public abstract class Actor extends ImageView{
 
 	/**
 	 * @param dx
-	 * @return
+	 * @return y Position
 	 */
 	private double xPosition(double dx) {
 		return getX() + dx;
