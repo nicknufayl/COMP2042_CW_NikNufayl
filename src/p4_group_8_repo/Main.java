@@ -72,8 +72,8 @@ public class Main extends Application {
 	
 	
 	public void start() {
-		//background.playMusic();
-		//background.setMute(); // set
+		background.playMusic();
+		background.muteMusic(); // set
     	createTimer();
         timer.start();
     }

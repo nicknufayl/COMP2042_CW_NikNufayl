@@ -20,7 +20,14 @@ public class MyStage extends World{
 	/**
 	 * 
 	 */
-	public void setMute() {
+	public void muteMusic() {
+		setMute();
+	}
+
+	/**
+	 * 
+	 */
+	private void setMute() {
 		setOnKeyPressed(new EventHandler<KeyEvent>() {
 			public void handle(KeyEvent event){
 				switch (event.getCode()) {
