@@ -124,23 +124,23 @@ public class Animal extends Actor {
 			}
 			switch(carD) {
 				case 1:
-					setImage(new Image("file:src/p4_group_8_repo/waterdeath1.png", imgSize,imgSize , true, true));
+					setImage(new Image("file:src/resources/waterdeath1.png", imgSize,imgSize , true, true));
 					break;
 				case 2:
-					setImage(new Image("file:src/p4_group_8_repo/waterdeath2.png", imgSize,imgSize , true, true));
+					setImage(new Image("file:src/resources/waterdeath2.png", imgSize,imgSize , true, true));
 					break;
 				case 3:
-					setImage(new Image("file:src/p4_group_8_repo/waterdeath3.png", imgSize,imgSize , true, true));
+					setImage(new Image("file:src/resources/waterdeath3.png", imgSize,imgSize , true, true));
 					break;
 				case 4:
-					setImage(new Image("file:src/p4_group_8_repo/waterdeath4.png", imgSize,imgSize , true, true));
+					setImage(new Image("file:src/resources/waterdeath4.png", imgSize,imgSize , true, true));
 					break;
 				case 5:
 					setX(300);
 					setY(679.8+movement);
 					waterDeath = false;
 					carD = 0;
-					setImage(new Image("file:src/p4_group_8_repo/froggerUp.png", imgSize, imgSize, true, true));
+					setImage(new Image("file:src/resources/froggerUp.png", imgSize, imgSize, true, true));
 					noMove = false;
 					if (points>50) {
 						points-=50;
@@ -163,20 +163,20 @@ public class Animal extends Actor {
 			}
 			switch (carD) {
 				case 1:
-					setImage(new Image("file:src/p4_group_8_repo/cardeath1.png", imgSize, imgSize, true, true));
+					setImage(new Image("file:src/resources/cardeath1.png", imgSize, imgSize, true, true));
 					break;
 				case 2:
-					setImage(new Image("file:src/p4_group_8_repo/cardeath2.png", imgSize, imgSize, true, true));
+					setImage(new Image("file:src/resources/cardeath2.png", imgSize, imgSize, true, true));
 					break;
 				case 3:
-					setImage(new Image("file:src/p4_group_8_repo/cardeath3.png", imgSize, imgSize, true, true));
+					setImage(new Image("file:src/resources/cardeath3.png", imgSize, imgSize, true, true));
 					break;
 				case 4:
 					setX(300);
 					setY(679.8+movement);
 					carDeath = false;
 					carD = 0;
-					setImage(new Image("file:src/p4_group_8_repo/froggerUp.png", imgSize, imgSize, true, true));
+					setImage(new Image("file:src/resources/froggerUp.png", imgSize, imgSize, true, true));
 					noMove = false;
 					if (points>50) {
 						points-=50;
@@ -207,14 +207,14 @@ public class Animal extends Actor {
 		
 	}
 	public void setMoveImage() {
-		imgW1 = new Image("file:src/p4_group_8_repo/froggerUp.png", imgSize, imgSize, true, true);
-		imgA1 = new Image("file:src/p4_group_8_repo/froggerLeft.png", imgSize, imgSize, true, true);
-		imgS1 = new Image("file:src/p4_group_8_repo/froggerDown.png", imgSize, imgSize, true, true);
-		imgD1 = new Image("file:src/p4_group_8_repo/froggerRight.png", imgSize, imgSize, true, true);
-		imgW2 = new Image("file:src/p4_group_8_repo/froggerUpJump.png", imgSize, imgSize, true, true);
-		imgA2 = new Image("file:src/p4_group_8_repo/froggerLeftJump.png", imgSize, imgSize, true, true);
-		imgS2 = new Image("file:src/p4_group_8_repo/froggerDownJump.png", imgSize, imgSize, true, true);
-		imgD2 = new Image("file:src/p4_group_8_repo/froggerRightJump.png", imgSize, imgSize, true, true);
+		imgW1 = new Image("file:src/resources/froggerUp.png", imgSize, imgSize, true, true);
+		imgA1 = new Image("file:src/resources/froggerLeft.png", imgSize, imgSize, true, true);
+		imgS1 = new Image("file:src/resources/froggerDown.png", imgSize, imgSize, true, true);
+		imgD1 = new Image("file:src/resources/froggerRight.png", imgSize, imgSize, true, true);
+		imgW2 = new Image("file:src/resources/froggerUpJump.png", imgSize, imgSize, true, true);
+		imgA2 = new Image("file:src/resources/froggerLeftJump.png", imgSize, imgSize, true, true);
+		imgS2 = new Image("file:src/resources/froggerDownJump.png", imgSize, imgSize, true, true);
+		imgD2 = new Image("file:src/resources/froggerRightJump.png", imgSize, imgSize, true, true);
 	}
 
 	/**
