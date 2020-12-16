@@ -8,7 +8,6 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.input.KeyEvent;
 import javafx.stage.Stage;
-import java.awt.event.*;
 
 public class Main extends Application {
 	AnimationTimer timer;
@@ -16,7 +15,7 @@ public class Main extends Application {
 	Animal animal;
 	BackgroundImage froggerback, splashScreen;
 	Scene scene, mainMenu;
-	
+	World world;
 
 	
 	public static void main(String[] args) {
@@ -32,17 +31,10 @@ public class Main extends Application {
 	
 	@Override
 	public void start(Stage primaryStage) throws Exception {
-		
-		
-		if (State == STATE.GAME) {
-			displayGame(primaryStage); // set and display the game 
-			start();
-		}
-		
-		else if (State == STATE.MENU) {
-			displayMenu(primaryStage);
-		}
-		
+			
+		displayMenu(primaryStage);
+		displayGame(primaryStage);
+	
 
 	}
 	
@@ -72,9 +64,8 @@ public class Main extends Application {
 		
 		primaryStage.setScene(mainMenu);
 		primaryStage.show();
-	
-		
-	}
+
+	} 
 
 	/**
 	 * @param primaryStage
