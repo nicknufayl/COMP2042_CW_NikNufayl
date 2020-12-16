@@ -2,49 +2,78 @@ package p4_group_8_repo;
 
 import javafx.animation.AnimationTimer;
 import javafx.application.Application;
+import javafx.event.EventHandler;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
+import javafx.scene.input.KeyEvent;
 import javafx.stage.Stage;
+import java.awt.event.*;
 
 public class Main extends Application {
 	AnimationTimer timer;
-	MyStage background = new MyStage();;
-	Animal animal = new Animal("file:src/resources/froggerUp.png");
-	BackgroundImage froggerback = new BackgroundImage("file:src/resources/background.jpg");
-	Menu menu = new Menu();
-	Scene scene  = new Scene(background,600,800);
+	MyStage background, menu;
+	Animal animal;
+	BackgroundImage froggerback, splashScreen;
+	Scene scene, mainMenu;
+	
+
 	
 	public static void main(String[] args) {
 		launch(args);
 	}
 
-	
 	private enum STATE {
 		MENU,
 		GAME
-	}
+	};
 	
 	private STATE State = STATE.MENU;
 	
-
 	@Override
-	public void start(Stage primaryStage) throws Exception {			    				
-		background.add(froggerback); // add game background	
-		addLog(); // spawn logs into game
-		addTurtle(); // spawn turtles into game
-		addEnd(); // add end spots into game
-		addVehicle(); // add vehicles into game
-		setGame(primaryStage); // set and display the game scene
+	public void start(Stage primaryStage) throws Exception {
 		
-		start(); // start game
+		if (State == STATE.MENU) {
+			displayMenu(primaryStage); // set and display the menu 
+		}
+		
+		else if (State == STATE.GAME) {
+			displayGame(primaryStage); // set and display the game 
+			start(); // start game
+		}
+		
+		
+		
 
+	}
+	
+	private void displayMenu(Stage primaryStage) {
+		
+		menu = new MyStage();
+		mainMenu = new Scene(menu, 600, 800);
+		splashScreen = new BackgroundImage("file:src/resources/background.jpg");
+		
+		
+		menu.add(splashScreen);	
+		menu.start();
+		primaryStage.setScene(mainMenu);
+		primaryStage.show();
 	}
 
 	/**
 	 * @param primaryStage
 	 */
-	private void setGame(Stage primaryStage) {
+	private void displayGame(Stage primaryStage) {
+		background = new MyStage();
+		animal = new Animal("file:src/resources/froggerUp.png");
+		froggerback = new BackgroundImage("file:src/resources/background.jpg");
+		scene  = new Scene(background,600,800);	
+		
+		background.add(froggerback); // add game background	
+		addLog(); // spawn logs into game
+		addTurtle(); // spawn turtles into game
+		addEnd(); // add end spots into game
+		addVehicle(); // add vehicles into game
 		background.add(animal);
 		background.add(new Digit(0, 30, 360, 25));		
 		background.start();
@@ -72,7 +101,7 @@ public class Main extends Application {
 	
 	
 	public void start() {
-		background.playMusic();
+		//background.playMusic();
 		background.muteMusic(); // set
     	createTimer();
         timer.start();
