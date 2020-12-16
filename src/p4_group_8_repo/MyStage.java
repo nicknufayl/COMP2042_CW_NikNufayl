@@ -6,9 +6,11 @@ import javafx.event.EventHandler;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
+import p4_group_8_repo.Main.STATE;
 
 public class MyStage extends World{
 	MediaPlayer mediaPlayer;
+	
 	@Override
 	public void act(long now) {
 		
@@ -37,6 +39,18 @@ public class MyStage extends World{
 		});
 	}
 	
+	public void menu() {
+		setOnKeyPressed(new EventHandler<KeyEvent>() {
+			public void handle(KeyEvent event){
+				switch (event.getCode()) {
+					case Q:
+						Main.State = STATE.GAME;
+					default:
+						break;
+				}
+			}	
+		});
+	}
 		
 	public void playMusic() {
 		String musicFile = "src/resources/Frogger Main Song Theme (loop).mp3";   

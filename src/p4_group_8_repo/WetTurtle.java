@@ -3,10 +3,7 @@ package p4_group_8_repo;
 import javafx.scene.image.Image;
 
 public class WetTurtle extends Actor{
-	Image turtle1;
-	Image turtle2;
-	Image turtle3;
-	Image turtle4;
+	Image turtle1, turtle2, turtle3, turtle4;
 	private int speed;
 	int i = 1;
 	boolean bool = true;

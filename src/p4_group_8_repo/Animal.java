@@ -10,14 +10,7 @@ import javafx.scene.input.KeyEvent;
 
 
 public class Animal extends Actor {
-	Image imgW1;
-	Image imgA1;
-	Image imgS1;
-	Image imgD1;
-	Image imgW2;
-	Image imgA2;
-	Image imgS2;
-	Image imgD2;
+	Image imgW1, imgA1, imgS1, imgD1, imgW2, imgA2, imgS2, imgD2;
 	int points = 0;
 	int end = 0;
 	private boolean second = false;

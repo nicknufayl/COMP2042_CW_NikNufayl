@@ -23,41 +23,57 @@ public class Main extends Application {
 		launch(args);
 	}
 
-	private enum STATE {
+	public static enum STATE {
 		MENU,
 		GAME
 	};
 	
-	private STATE State = STATE.MENU;
+	public static STATE State = STATE.MENU;
 	
 	@Override
 	public void start(Stage primaryStage) throws Exception {
 		
-		if (State == STATE.MENU) {
-			displayMenu(primaryStage); // set and display the menu 
-		}
 		
-		else if (State == STATE.GAME) {
+		if (State == STATE.GAME) {
 			displayGame(primaryStage); // set and display the game 
-			start(); // start game
+			start();
 		}
 		
-		
+		else if (State == STATE.MENU) {
+			displayMenu(primaryStage);
+		}
 		
 
 	}
 	
 	private void displayMenu(Stage primaryStage) {
 		
+		
 		menu = new MyStage();
 		mainMenu = new Scene(menu, 600, 800);
-		splashScreen = new BackgroundImage("file:src/resources/background.jpg");
-		
-		
+		splashScreen = new BackgroundImage("file:src/resources/menu.jpg");
+		animal = new Animal("file:src/resources/froggerUp.png");
 		menu.add(splashScreen);	
+		menu.add(new Turtle(500, 376, -1, 130, 130));
+		menu.add(new Turtle(300, 376, -1, 130, 130));
+		menu.add(new WetTurtle(700, 376, -1, 130, 130));
+	
+		
+		menu.add(new Log("file:src/resources/logs.png", 300, 0, 276, -2));
+		menu.add(new Log("file:src/resources/logs.png", 300, 400, 276, -2));
+		
+		menu.add(new Log("file:src/resources/log3.png", 150, 50, 329, 0.75));
+		menu.add(new Log("file:src/resources/log3.png", 150, 270, 329, 0.75));
+		menu.add(new Log("file:src/resources/log3.png", 150, 490, 329, 0.75));
+		
+		menu.add(animal);
+		
 		menu.start();
+		
 		primaryStage.setScene(mainMenu);
 		primaryStage.show();
+	
+		
 	}
 
 	/**
@@ -177,4 +193,6 @@ public class Main extends Application {
 		alert.setContentText("Highest Possible Score: 800");
 		alert.show();
 	}
+
+
 }
