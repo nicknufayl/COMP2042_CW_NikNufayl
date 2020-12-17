@@ -3,12 +3,9 @@ package p4_group_8_repo;
 import javafx.scene.image.Image;
 
 public class Turtle extends Actor{
-	Image turtle1;
-	Image turtle2;
-	Image turtle3;
+	Image turtle1, turtle2, turtle3;
 	private int speed;
-	int i = 1;
-	boolean bool = true;
+	
 	@Override
 	public void act(long now) {
 
