@@ -11,6 +11,7 @@ import javafx.application.Application;
 import javafx.collections.ObservableList;
 
 import javafx.scene.Node;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
@@ -22,10 +23,10 @@ import javafx.scene.control.Button;
 
 public class Main extends Application {
 	AnimationTimer timer;
-	MyStage froggerGame, menu;
+	MyStage froggerGame, menu, froggerHelp;
 	Animal animal;
-	BackgroundImage froggerBG, splashScreen;
-	Scene scene, mainMenu;
+	BackgroundImage froggerBG, splashScreen, helpScreen;
+	Scene game, mainMenu, helpMenu;
 	World world;
 
 	
@@ -43,19 +44,30 @@ public class Main extends Application {
 	@Override	
 	public void start(Stage primaryStage) throws Exception {
 		
+		displayMenu(primaryStage);
+
+	}
+
+	/**
+	 * Set the Main Menu
+	 * @param primaryStage
+	 */
+	private void displayMenu(Stage primaryStage) {
 		primaryStage.setTitle("FROGGER");
 		Button play = new Button("PLAY");
 		Button help = new Button("HOW TO PLAY");
 		
-		VBox border = new VBox();
+		VBox splashScreen = new VBox();
+		VBox.setMargin(play, new Insets(10, 10, 30, 10));
 		
-		border.setSpacing(20);
-		border.setAlignment(Pos.BOTTOM_CENTER);
-		border.getChildren().addAll(play, help);
-		border.setPadding(new Insets(10, 10, 140, 10));
+		splashScreen.setSpacing(20);
+		splashScreen.setAlignment(Pos.BOTTOM_CENTER);
+		splashScreen.getChildren().addAll(play, help);
+		splashScreen.setPadding(new Insets(10, 10, 140, 10));
 		
-		Scene mainMenu = new Scene(border, 600, 800);
+		mainMenu = new Scene(splashScreen, 600, 800);
 		mainMenu.getStylesheets().add("file:src/resources/style.css");
+		
 		primaryStage.setScene(mainMenu);
 		primaryStage.show();
 		
@@ -67,45 +79,53 @@ public class Main extends Application {
 			}
 			
 		});
-	
 		
-	/*	if (State == STATE.MENU) {
-			displayMenu(primaryStage); 
-		}
-			
-		else if (State == STATE.GAME) {
-			displayGame(primaryStage); 
-			start();
-		} */
-	
+		
+		/*
+		 * To display How to Play screen 
+		 */
+		
+		help.setOnAction(new EventHandler<ActionEvent>() {
+			@Override
+			public void handle(ActionEvent event) {
+				Button back = displayHelp(primaryStage);
+				
+				back.setOnAction(new EventHandler<ActionEvent>() {
+					@Override
+					public void handle(ActionEvent event) {
+						displayMenu(primaryStage);
+					}
+					
+				});
+			}
 
+			/**
+			 * Display Help Menu
+			 * @param primaryStage
+			 * @return
+			 */
+			private Button displayHelp(Stage primaryStage) {
+				Button back = new Button("BACK");
+				
+				VBox helpScreen = new VBox();
+				
+				helpScreen.setSpacing(20);
+				helpScreen.setAlignment(Pos.TOP_LEFT);
+				helpScreen.getChildren().addAll(back);
+				helpScreen.setPadding(new Insets(10));
+				helpScreen.setStyle("-fx-background-image: url('file:src/resources/FROGGERhelp.jpg');");
+				
+				helpMenu = new Scene(helpScreen, 600, 800);
+				helpMenu.getStylesheets().add("file:src/resources/style.css");
+				
+				primaryStage.setScene(helpMenu);
+				primaryStage.show();
+				return back;
+			}
+			
+		});
 	}
 	
-	/*private void displayMenu(Stage primaryStage) {
-		menu = new MyStage();
-		mainMenu = new Scene(menu, 600, 800);
-		splashScreen = new BackgroundImage("file:src/resources/menu.jpg");
-		animal = new Animal("file:src/resources/froggerUp.png");
-		menu.add(splashScreen);	
-		
-		menu.add(new Turtle(500, 376, -1, 130, 130));
-		menu.add(new Turtle(300, 376, -1, 130, 130));
-		menu.add(new WetTurtle(700, 376, -1, 130, 130));
-	
-		menu.add(new Log("file:src/resources/logs.png", 300, 0, 276, -2));
-		menu.add(new Log("file:src/resources/logs.png", 300, 400, 276, -2));
-		menu.add(new Log("file:src/resources/log3.png", 150, 50, 329, 0.75));
-		menu.add(new Log("file:src/resources/log3.png", 150, 270, 329, 0.75));
-		menu.add(new Log("file:src/resources/log3.png", 150, 490, 329, 0.75));
-		
-		menu.add(animal);
-			
-		menu.start();
-		
-		primaryStage.setScene(mainMenu);
-		primaryStage.show();
-
-	} */
 
 	/**
 	 * @param primaryStage
@@ -114,7 +134,7 @@ public class Main extends Application {
 		froggerGame = new MyStage();
 		animal = new Animal("file:src/resources/froggerUp.png");
 		froggerBG = new BackgroundImage("file:src/resources/background.jpg");
-		scene  = new Scene(froggerGame,600,800);	
+		game  = new Scene(froggerGame,600,800);	
 		
 		froggerGame.add(froggerBG); // add game background	
 		addLog(); // spawn logs into game
@@ -124,7 +144,7 @@ public class Main extends Application {
 		froggerGame.add(animal);
 		froggerGame.add(new Digit(0, 30, 360, 25));		
 		froggerGame.start();
-		primaryStage.setScene(scene);
+		primaryStage.setScene(game);
 		primaryStage.show();
 		start();
 	}

@@ -1,18 +1,21 @@
 .root {
-	-fx-background-image: url("menu.jpg")
+	-fx-background-image: url("menu.jpg");
+	-fx-font-family: "Courier New";
 }
 
-.button {
+.button{
 	-fx-background-color:transparent;
 	-fx-display:inline-block;
 	-fx-text-fill:white;
-	-fx-font-family:Arial;
-	-fx-font-size:28px;
+	-fx-font-size:35px;
 	-fx-font-weight:bold;
-	-fx-padding:8px;
+	-fx-padding: 0 5px;
 	-fx-text-decoration:none;
 }
 .button:hover {
-	-fx-background-color:#029e21;
+	-fx-background-color:#00c728;
 	-fx-text-fill:black;
 }
+
+
+
