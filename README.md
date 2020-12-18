@@ -1,7 +1,7 @@
 # COMP2042_CW_hfynm7
 
 # Screenshot of Game
-![alt text](https://raw.githubusercontent.com/hirish99/Frogger-Arcade-Game/master/arcade.png)
+![alt text](https://imgur.com/gBWruEg)
 
 ## Main Class
 ### 1. Refactored codes
