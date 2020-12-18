@@ -22,12 +22,12 @@
 	- Extracted methods
 	- Changed if-else statements to switch statements
 
-### High Score System
+## High Score System
 
-## HighScore Class
+### HighScore Class
 	- For score comparisons and listing
 	
-## HighScoreManager
+### HighScoreManager
 	- Creates a file for scoreboard in Main class
 	- Manages the file and the scores, adding and updating into the files
 	
