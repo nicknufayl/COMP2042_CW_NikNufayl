@@ -165,7 +165,7 @@ public class Main extends Application {
 	
 	public void start() {
 		froggerGame.playMusic();
-		froggerGame.muteMusic(); // set
+		froggerGame.muteMusic();
     	createTimer();
         timer.start();
     }
