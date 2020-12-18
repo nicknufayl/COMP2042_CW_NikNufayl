@@ -50,7 +50,7 @@ public class Main extends Application {
 	}
 
 	/**
-	 * Set the Main Menu
+	 * <h1> Main Menu <h1>
 	 * @param primaryStage
 	 */
 	private void displayMenu(Stage primaryStage) {
@@ -129,6 +129,7 @@ public class Main extends Application {
 	
 
 	/**
+	 * <h1> Game Display <h1>
 	 * @param primaryStage
 	 */
 	private void displayGame(Stage primaryStage) {
@@ -225,7 +226,7 @@ public class Main extends Application {
 
 	private void addVehicle() {
 		froggerGame.add(new Obstacle("file:src/resources/truck1"+"Right.png", 0, 649, 1, 120, 120));
-		froggerGame.add(new Obstacle("file:src/resources/truck1"+"Right.png", 300, 649, 1, 120, 120));
+		froggerGame.add(new Obstacle("file:src/resources/truck1"+"Right.png", 300, 649, 1, 120, 120)); 
 		froggerGame.add(new Obstacle("file:src/resources/truck1"+"Right.png", 600, 649, 1, 120, 120));
 		froggerGame.add(new Obstacle("file:src/resources/car1Left.png", 100, 597, -1, 50, 50));
 		froggerGame.add(new Obstacle("file:src/resources/car1Left.png", 250, 597, -1, 50, 50));
@@ -245,7 +246,7 @@ public class Main extends Application {
     	hScore.addScore(animal.getPoints());
 		alert.setTitle("You Have Won The Game!");
 		alert.setHeaderText("Your Score: "+ animal.getPoints() + "!");
-		alert.setContentText("High Score: " + hScore.getHighscoreString());
+		alert.setContentText("Scoreboard: " + "\n" + hScore.getHighscoreString());
 		alert.show();
 	}
 

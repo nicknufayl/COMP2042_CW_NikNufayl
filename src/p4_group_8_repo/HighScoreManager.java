@@ -76,7 +76,9 @@ public class HighScoreManager {
             }
         }
     }
-    
+     /**
+      * <h1> Score Display <h1>
+      */
     public String getHighscoreString() {
         String highscoreString = "";
         int max = 10;
@@ -90,7 +92,7 @@ public class HighScoreManager {
             x = max;
         }
         while (i < x) {
-            highscoreString += "\t" + (i + 1) + "\t" + scores.get(i).getScore() + "\n";
+            highscoreString += (i + 1) + "\t" + scores.get(i).getScore() + "\n";
             i++;
         }
         return highscoreString;
