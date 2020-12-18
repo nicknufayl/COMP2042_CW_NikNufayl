@@ -1,7 +1,7 @@
 # COMP2042_CW_hfynm7
 
 # Screenshot of Game
-![alt text](https://imgur.com/gBWruEg)
+![alt text](https://i.imgur.com/gBWruEg.png)
 
 ## Main Class
 ### 1. Refactored codes
