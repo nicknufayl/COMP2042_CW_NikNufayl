@@ -5,15 +5,26 @@ import javafx.scene.input.InputEvent;
 
 import java.util.ArrayList;
 
+/**
+ * This class sets the coordinates and positions of the sprites
+ * @author Nik Nufayl Daniel Md Nezam, 20063592
+ *
+ */
 
 public abstract class Actor extends ImageView{
 
+	/**
+	 * Sets x and y positions
+	 * @param dx 
+	 * @param dy
+	 */
     public void move(double dx, double dy) {
         setX(xPosition(dx));
         setY(yPosition(dy));
     }
 
 	/**
+	 * Gets y position coordinates
 	 * @param dy
 	 * @return x Position
 	 */
@@ -22,6 +33,7 @@ public abstract class Actor extends ImageView{
 	}
 
 	/**
+	 * Gets x position coordinates
 	 * @param dx
 	 * @return y Position
 	 */
@@ -32,11 +44,19 @@ public abstract class Actor extends ImageView{
     public World getWorld() {
         return (World) getParent();
     }
-
+    
+    /**
+     * Gets the width value
+     * @return
+     */
     public double getWidth() {
         return this.getBoundsInLocal().getWidth();
     }
-
+    
+    /**
+     * Gets the height value
+     * @return
+     */
     public double getHeight() {
         return this.getBoundsInLocal().getHeight();
     }

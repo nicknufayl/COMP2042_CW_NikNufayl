@@ -13,14 +13,21 @@ import javafx.scene.Scene;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.Pane;
 
-
+/**
+ * This class sets the game world
+ * @author Nik Nufayl Daniel Md Nezam, 20063592
+ *
+ */
 public abstract class World extends Pane {
     private AnimationTimer timer;
     
+    /**
+     * 
+     */
     public World() {
     	
     	sceneProperty().addListener(new ChangeListener<Scene>() {
-
+    		
 			@Override
 			public void changed(ObservableValue<? extends Scene> observable, Scene oldValue, Scene newValue) {
 				if (newValue != null) {
@@ -62,6 +69,9 @@ public abstract class World extends Pane {
 		});
     }
 
+    /**
+     * 
+     */
     public void createTimer() {
         timer = new AnimationTimer() {
             @Override
@@ -76,24 +86,44 @@ public abstract class World extends Pane {
             }
         };
     }
-
+    
+    /**
+     * 
+     */
     public void start() {
     	createTimer();
         timer.start();
     }
-
+    
+    /**
+     * 
+     */
     public void stop() {
         timer.stop();
     }
     
+    /**
+     * Adds actor x and y positions into the game
+     * @param actor
+     */
     public void add(Actor actor) {
         getChildren().add(actor);
     }
 
+    /**
+     *  Removes actor x and y positions into the game
+     * @param actor
+     */
     public void remove(Actor actor) {
         getChildren().remove(actor);
     }
-
+    
+    /**
+     * 
+     * @param <A>
+     * @param cls
+     * @return
+     */
     public <A extends Actor> List<A> getObjects(Class<A> cls) {
         ArrayList<A> someArray = new ArrayList<A>();
         for (Node n: getChildren()) {

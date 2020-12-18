@@ -8,7 +8,12 @@ import javafx.scene.image.Image;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 
-
+/**
+ * This class is to set the sprite movement and death animations
+ * and to set the controls
+ * @author Nik Nufayl Daniel Md Nezam, 20063592
+ *
+ */
 public class Animal extends Actor {
 	Image imgW1, imgA1, imgS1, imgD1, imgW2, imgA2, imgS2, imgD2;
 	int points = 0;
@@ -27,6 +32,10 @@ public class Animal extends Actor {
 	
 	ArrayList<End> inter = new ArrayList<End>();
 	
+	/**
+	 * 
+	 * @param imageLink
+	 */
 	public Animal(String imageLink) {
 		setImage(new Image(imageLink, imgSize, imgSize, true, true));
 		setX(300);
@@ -45,6 +54,10 @@ public class Animal extends Actor {
 		});
 	}
 	
+	/**
+	 * Checks for intersections of player and sprites
+	 * Sets death animation
+	 */
 	@Override
 	public void act(long now) {
 		if (getY()<0 || getY()>734) {
@@ -70,7 +83,8 @@ public class Animal extends Actor {
 	}
 
 	/**
-	 * 
+	 * Sets objects intersections
+	 * Updates the scores in the game
 	 */
 	private void intersectingObjectsConfig() {
 		
@@ -111,6 +125,7 @@ public class Animal extends Actor {
 	}
 
 	/**
+	 * Sets water death animations
 	 * @param now
 	 */
 	private void setWaterDeathAnimation(long now) {
@@ -150,6 +165,7 @@ public class Animal extends Actor {
 	}
 
 	/**
+	 * Sets car death animations
 	 * @param now
 	 */
 	private void setCarDeathAnimation(long now) {
@@ -187,14 +203,27 @@ public class Animal extends Actor {
 			
 		}
 	}
+	
+	/**
+	 * Gets stop command if end == 5
+	 * @return
+	 */
 	public boolean getStop() {
 		return end==5;
 	}
 	
+	/**
+	 * Gets and returns the score from the game
+	 * @return
+	 */
 	public int getPoints() {
 		return points;
 	}
 	
+	/**
+	 * Checks if score is changed during the game
+	 * @return
+	 */
 	public boolean changeScore() {
 		if (changeScore) {
 			changeScore = false;
@@ -203,6 +232,10 @@ public class Animal extends Actor {
 		return false;
 		
 	}
+	
+	/**
+	 * Sets player movement animation
+	 */
 	public void setMoveImage() {
 		imgW1 = new Image("file:src/resources/froggerUp.png", imgSize, imgSize, true, true);
 		imgA1 = new Image("file:src/resources/froggerLeft.png", imgSize, imgSize, true, true);
@@ -215,6 +248,7 @@ public class Animal extends Actor {
 	}
 
 	/**
+	 * Sets WASD keys for movement control when pressed
 	 * @param event
 	 */
 	private void setMoveKeysPressed(KeyEvent event) {
@@ -273,6 +307,7 @@ public class Animal extends Actor {
 	}
 
 	/**
+	 * Sets WASD keys for movement control when released
 	 * @param event
 	 */
 	private void setMoveKeysReleased(KeyEvent event) {

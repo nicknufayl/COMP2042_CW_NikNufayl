@@ -2,10 +2,18 @@ package p4_group_8_repo;
 
 import javafx.scene.image.Image;
 
+/**
+ * This class manages the turtle sprites in the game
+ * @author Nik Nufayl Daniel Md Nezam, 20063592
+ *
+ */
 public class Turtle extends Actor{
 	Image turtle1, turtle2, turtle3;
 	private int speed;
 	
+	/**
+	 * Sets the movement speed for the turtles in the game
+	 */
 	@Override
 	public void act(long now) {
 
@@ -17,7 +25,9 @@ public class Turtle extends Actor{
 		if (getX() < -75 && speed<0)
 			setX(600);
 	}
+	
 	/**
+	 * Sets which animation to be displayed at a current time of the game
 	 * @param now
 	 */
 	private void setWhichTurtleNow(long now) {
@@ -34,6 +44,15 @@ public class Turtle extends Actor{
 			
 		}
 	}
+	
+	/**
+	 * Configures the turtles images in the game
+	 * @param xpos
+	 * @param ypos
+	 * @param s The speed
+	 * @param w The width
+	 * @param h The height
+	 */
 	public Turtle(int xpos, int ypos, int s, int w, int h) {
 		setTurtleImage(w, h);
 		setX(xpos);
@@ -42,8 +61,9 @@ public class Turtle extends Actor{
 		setImage(turtle2);
 	}
 	/**
-	 * @param w
-	 * @param h
+	 * Sets the turtle images in the game
+	 * @param w The width
+	 * @param h The height
 	 */
 	private void setTurtleImage(int w, int h) {
 		turtle1 = new Image("file:src/resources/TurtleAnimation1.png", w, h, true, true);

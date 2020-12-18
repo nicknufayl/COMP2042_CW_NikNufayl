@@ -1,26 +1,23 @@
 package p4_group_8_repo;
 
-import java.awt.*;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
-
 import javafx.geometry.*;
 import javafx.geometry.Insets;
 import javafx.animation.AnimationTimer;
 import javafx.application.Application;
-import javafx.collections.ObservableList;
-
-import javafx.scene.Node;
-import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
-import javafx.scene.input.KeyEvent;
-import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import javafx.scene.control.Button;
 
+/**
+ * This class is the main class to run the Frogger program
+ * @author Nik Nufayl Daniel Md Nezam, 20063592
+ *
+ */
 public class Main extends Application {
 	AnimationTimer timer;
 	MyStage froggerGame, menu, froggerHelp;
@@ -35,6 +32,9 @@ public class Main extends Application {
 		launch(args);
 	}
 	
+	/**
+	 * Sets the stage of the program
+	 */
 	@Override	
 	public void start(Stage primaryStage) throws Exception {
 		
@@ -43,7 +43,7 @@ public class Main extends Application {
 	}
 
 	/**
-	 * <h1> Main Menu <h1>
+	 * Displays the Main Menu
 	 * @param primaryStage
 	 */
 	private void displayMenu(Stage primaryStage) {
@@ -65,7 +65,9 @@ public class Main extends Application {
 		primaryStage.setScene(mainMenu);
 		primaryStage.show();
 		
-		
+		/**
+		 * Navigates to the game if play button is pressed
+		 */
 		play.setOnAction(new EventHandler<ActionEvent>() {
 			@Override	
 			public void handle(ActionEvent event) {
@@ -74,11 +76,9 @@ public class Main extends Application {
 			
 		});
 		
-		
-		/*
-		 * To display How to Play screen 
+		/**
+		 * Navigates to the How to Play screen if help button is pressed
 		 */
-		
 		help.setOnAction(new EventHandler<ActionEvent>() {
 			@Override
 			public void handle(ActionEvent event) {
@@ -94,7 +94,7 @@ public class Main extends Application {
 			}
 
 			/**
-			 * Display Help Menu
+			 * Displays the How To Play Menu
 			 * @param primaryStage
 			 * @return
 			 */
@@ -122,7 +122,7 @@ public class Main extends Application {
 	
 
 	/**
-	 * <h1> Game Display <h1>
+	 * Displays the game stage
 	 * @param primaryStage
 	 */
 	private void displayGame(Stage primaryStage) {
@@ -143,7 +143,11 @@ public class Main extends Application {
 		primaryStage.show();
 		start();
 	}
-		
+	
+	/**
+	 * Handles the score in the game
+	 * Stops and displays the scoreboard at the end of the game
+	 */
 	public void createTimer() {
         timer = new AnimationTimer() {
             @Override
@@ -162,18 +166,27 @@ public class Main extends Application {
         };
     }
 	
-	
+	/**
+	 * Starts the Frogger Game
+	 */
 	public void start() {
 		froggerGame.playMusic();
 		froggerGame.muteMusic();
     	createTimer();
         timer.start();
     }
-
+	
+	/**
+	 * Stops the Frogger Game
+	 */
     public void stop() {
         timer.stop();
     }
     
+    /**
+     * Updates the score at the top of the screen
+     * @param n
+     */
     public void setNumber(int n) {
     	int shift = 0;
     	while (n > 0) {
@@ -185,6 +198,9 @@ public class Main extends Application {
     		}
     }
     
+    /**
+     * Adds logs sprites into the game
+     */
     public void addLog() {
 		froggerGame.add(new Log("file:src/resources/log3.png", 150, 0, 166, 0.75));
 		froggerGame.add(new Log("file:src/resources/log3.png", 150, 220, 166, 0.75));
@@ -199,6 +215,9 @@ public class Main extends Application {
 		
 	}
 	
+    /**
+     * Adds turtle sprites into the game
+     */
 	public void addTurtle() {
 		froggerGame.add(new Turtle(500, 376, -1, 130, 130));
 		froggerGame.add(new Turtle(300, 376, -1, 130, 130));
@@ -208,6 +227,9 @@ public class Main extends Application {
 		froggerGame.add(new WetTurtle(200, 217, -1, 130, 130));
 	}
 	
+	/**
+	 * Adds end sprites into the game
+	 */
 	public void addEnd() {
 		froggerGame.add(new End(13,96));
 		froggerGame.add(new End(141,96));
@@ -216,7 +238,9 @@ public class Main extends Application {
 		froggerGame.add(new End(141 + 141-13+141-13+141-13+3,96));
 	}
 	
-
+	/**
+	 * Adds vehicle sprites into the game
+	 */
 	private void addVehicle() {
 		froggerGame.add(new Obstacle("file:src/resources/truck1"+"Right.png", 0, 649, 1, 120, 120));
 		froggerGame.add(new Obstacle("file:src/resources/truck1"+"Right.png", 300, 649, 1, 120, 120)); 
@@ -231,7 +255,7 @@ public class Main extends Application {
 	}
 
 	/**
-	 * 
+	 * Displays a pop up for score and scoreboard
 	 */
 	private void setAlert() {
 		Alert alert = new Alert(AlertType.INFORMATION);

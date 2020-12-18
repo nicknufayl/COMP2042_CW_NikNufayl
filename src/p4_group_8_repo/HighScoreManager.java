@@ -3,6 +3,11 @@ package p4_group_8_repo;
 import java.util.*;
 import java.io.*;
 
+/**
+ * This class manages the high score system
+ * @author Nik Nufayl Daniel Md Nezam, 20063592
+ *
+ */
 public class HighScoreManager {
     // An arraylist of the type "score" we will use to work with the scores inside the class
     private ArrayList<HighScore> scores;
@@ -13,28 +18,44 @@ public class HighScoreManager {
     //Initialising an in and outputStream for working with the file
     ObjectOutputStream outputStream = null;
     ObjectInputStream inputStream = null;
-
+    
+    /**
+     * Initializes the HighScore arraylist
+     */
     public HighScoreManager() {
-        //initialising the scores-arraylist
         scores = new ArrayList<HighScore>();
     }
     
+    /**
+     * Gets scores into the list
+     * @return
+     */
     public ArrayList<HighScore> getScores() {
         loadScoreFile();
         sort();
         return scores;
     }
     
+    /**
+     * Sorts the scores in list
+     */
     private void sort() {
         Collections.sort(scores);
     }
     
+    /**
+     * Adds scores into list
+     * @param score
+     */
     public void addScore(int score) {
         loadScoreFile();
         scores.add(new HighScore(score));
         updateScoreFile();
     }
     
+    /**
+     * Loads the Score file
+     */
     public void loadScoreFile() {
         try {
             inputStream = new ObjectInputStream(new FileInputStream(HIGHSCORE_FILE));
@@ -57,6 +78,9 @@ public class HighScoreManager {
         }
     }
     
+    /**
+     * Updates the Score file
+     */
     public void updateScoreFile() {
         try {
             outputStream = new ObjectOutputStream(new FileOutputStream(HIGHSCORE_FILE));
@@ -77,7 +101,7 @@ public class HighScoreManager {
         }
     }
      /**
-      * <h1> Score Display <h1>
+      * Prints out the scores
       */
     public String getHighscoreString() {
         String highscoreString = "";
