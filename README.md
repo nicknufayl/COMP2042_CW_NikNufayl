@@ -7,8 +7,11 @@
 1. Refactored codes
 	- Extracted methods from start(Stage primaryStage) and cleaned up
 	
-2. Added game state, for menu system
-	- Created displayGame() and displayMenu() to change states
+2. Added Main Menu
+	- Added Vbox, buttons and EventHandlers for navigation through Main Menu
+	- Added methods: displayGame(), displayMenu(), displayMenu() and displayHelp()
+	
+3. Added Scoreboard
 	
 ### MyStage Class
 1. Added a mute option for the background music
@@ -19,3 +22,12 @@
 	- Extracted methods
 	- Changed if-else statements to switch statements
 
+### High Score System
+
+## HighScore Class
+	- For score comparisons and listing
+	
+## HighScoreManager
+	- Creates a file for scoreboard in Main class
+	- Manages the file and the scores, adding and updating into the files
+	

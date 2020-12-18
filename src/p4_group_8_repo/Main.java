@@ -34,13 +34,6 @@ public class Main extends Application {
 	public static void main(String[] args) {
 		launch(args);
 	}
-
-	public static enum STATE {
-		MENU,
-		GAME
-	};
-		
-	public static STATE State = STATE.GAME;
 	
 	@Override	
 	public void start(Stage primaryStage) throws Exception {
@@ -66,7 +59,7 @@ public class Main extends Application {
 		splashScreen.getChildren().addAll(play, help);
 		splashScreen.setPadding(new Insets(10, 10, 140, 10));
 		
-		mainMenu = new Scene(splashScreen, 600, 800);
+		mainMenu = new Scene(splashScreen, 600, 800);	
 		mainMenu.getStylesheets().add("file:src/resources/style.css");
 		
 		primaryStage.setScene(mainMenu);
@@ -74,7 +67,7 @@ public class Main extends Application {
 		
 		
 		play.setOnAction(new EventHandler<ActionEvent>() {
-			@Override
+			@Override	
 			public void handle(ActionEvent event) {
 				displayGame(primaryStage);
 			}
