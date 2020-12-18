@@ -51,12 +51,5 @@ public class MyStage extends World{
 	public void stopMusic() {
 		mediaPlayer.stop();
 	}
-	
-	public void startGame() {
-		Main.State = Main.STATE.GAME;
-	}
-	
-
-	
 
 }

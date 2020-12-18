@@ -170,15 +170,13 @@ public class Main extends Application {
 	
 	
 	public void start() {
-		//background.playMusic();
+		froggerGame.playMusic();
 		froggerGame.muteMusic(); // set
     	createTimer();
         timer.start();
     }
 
     public void stop() {
-    	hScore = new HighScoreManager();
-    	hScore.addScore(animal.getPoints());
         timer.stop();
     }
     
@@ -243,9 +241,11 @@ public class Main extends Application {
 	 */
 	private void setAlert() {
 		Alert alert = new Alert(AlertType.INFORMATION);
+		hScore = new HighScoreManager();
+    	hScore.addScore(animal.getPoints());
 		alert.setTitle("You Have Won The Game!");
-		alert.setHeaderText("Your High Score: "+animal.getPoints()+"!");
-		alert.setContentText("Highest Possible Score: 800");
+		alert.setHeaderText("Your Score: "+ animal.getPoints() + "!");
+		alert.setContentText("High Score: " + hScore.getHighscoreString());
 		alert.show();
 	}
 
