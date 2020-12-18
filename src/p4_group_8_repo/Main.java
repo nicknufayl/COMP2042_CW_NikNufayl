@@ -28,6 +28,7 @@ public class Main extends Application {
 	BackgroundImage froggerBG, splashScreen, helpScreen;
 	Scene game, mainMenu, helpMenu;
 	World world;
+	HighScoreManager hScore;
 
 	
 	public static void main(String[] args) {
@@ -176,6 +177,8 @@ public class Main extends Application {
     }
 
     public void stop() {
+    	hScore = new HighScoreManager();
+    	hScore.addScore(animal.getPoints());
         timer.stop();
     }
     

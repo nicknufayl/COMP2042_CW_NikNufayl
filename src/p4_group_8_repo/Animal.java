@@ -73,6 +73,7 @@ public class Animal extends Actor {
 	 * 
 	 */
 	private void intersectingObjectsConfig() {
+		
 		if (getIntersectingObjects(Log.class).size() >= 1 && !noMove) {
 			if(getIntersectingObjects(Log.class).get(0).getLeft())
 				move(-2,0);
@@ -95,6 +96,7 @@ public class Animal extends Actor {
 				end--;
 				points-=50;
 			}
+			
 			points+=50;
 			changeScore = true;
 			w=800;
